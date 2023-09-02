@@ -1,0 +1,15 @@
+services:
+  database:
+    image: postgres:13-alpine
+    restart: always
+    ports:
+      - 5433:5433
+    environment:
+      POSTGRES_DB: artistsAppDb
+      POSTGRES_USER: artistsAppUser
+      POSTGRES_PASSWORD: artistsAppPass
+    volumes:
+      - artists-app:/var/lib/postgresql/data
+    command: -p 5433
+volumes:
+  artists-app:
